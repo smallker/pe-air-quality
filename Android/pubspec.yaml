@@ -23,25 +23,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # core & state manager
-  get: ^3.8.0
-  load: ^0.1.6
-  # layout & views
-  google_fonts: ^1.1.0
-  persistent_bottom_nav_bar: ^2.0.5
-  flutter_svg: ^0.18.1
-  form_field_validator: ^1.0.1
-  fl_chart: ^0.12.0
   carousel_slider: ^2.3.1
-  # firebase or other db stuff
-
-  # hardware spesific package
-  
-  # maps & device location
-  google_maps_flutter: ^1.0.3
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.3
+  firebase_core: ^0.5.0+1
+  firebase_database: ^4.2.0
+  fl_chart: ^0.12.0
+  geocoding: ^1.0.5
+  get: ^3.8.0
+  google_fonts: ^1.1.0
+  google_maps_flutter: ^1.0.3
+  load: ^0.1.6
+  persistent_bottom_nav_bar: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -49,7 +41,6 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
 # The following section is specific to Flutter.
 flutter:
 
@@ -62,13 +53,10 @@ flutter:
   assets:
     - assets/
   #   - images/a_dot_ham.jpeg
-
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
-
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
-
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a

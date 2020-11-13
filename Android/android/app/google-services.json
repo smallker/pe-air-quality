@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "600379435796",
+    "firebase_url": "https://pe-air-quality.firebaseio.com",
+    "project_id": "pe-air-quality",
+    "storage_bucket": "pe-air-quality.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600379435796:android:d40a8e486b7fc9bacef001",
+        "android_client_info": {
+          "package_name": "com.smallker.airquality"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600379435796-bin1jus5dvfff1htue34f2ds4lmrpfq5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAko1JtxzwExBV3q7D3eGAZ1WNQdXK8e1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600379435796-bin1jus5dvfff1htue34f2ds4lmrpfq5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
