@@ -20,7 +20,7 @@ class DataModel {
         co: json["co"].toDouble(),
         temperature: json["temperature"].toDouble(),
         humidity: json["humidity"].toDouble(),
-        timestamp: int.parse(json["timestamp"]) * 1000,
+        timestamp: json["timestamp"] * 1000,
       );
 
   Map<String, dynamic> toMap() => {
