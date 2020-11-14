@@ -9,5 +9,6 @@
     },
     "files.associations": {
         "*.tcc": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Disabled"
 }
