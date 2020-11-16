@@ -87,7 +87,6 @@
 <wire x1="60" y1="100" x2="0" y2="100" width="0" layer="20"/>
 <wire x1="0" y1="100" x2="0" y2="0" width="0" layer="20"/>
 <dimension x1="44.45" y1="7.62" x2="44.45" y2="30.48" x3="44.45" y3="19.05" textsize="1.778" layer="1" dtype="vertical"/>
-<text x="38.1" y="16.51" size="6.4516" layer="16" font="vector" rot="MR0">Lolin</text>
 </plain>
 <libraries>
 <library name="con-lstb" urn="urn:adsk.eagle:library:162">
