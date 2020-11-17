@@ -1,10 +1,26 @@
+/*
+  --LoRa---
+  RST   -> 2
+  DIO0  -> 13
+  SS    -> 5
+  MOSI  -> 23
+  MISO  -> 19
+  SCK   -> 18
+
+  --DHT11--
+  DATA  -> 25
+
+  ---MQ2---
+  DATA  -> VP
+
+*/
+
 #include <Arduino.h>
 #include <SPI.h>
 #include <LoRa.h>
 #include <DHT.h>
-#define DHTPIN 25
-#define MQPIN 36
-int counter = 0;
+#define DHTPIN    25
+#define MQPIN     36
 DHT dht(DHTPIN, DHT11);
 
 void setup()
@@ -15,14 +31,6 @@ void setup()
     ;
   Serial.println("LoRa Sender");
   pinMode(MQPIN, INPUT);
-  // while (true)
-  // {
-  //   int mq = map(analogRead(MQPIN), 0,4095, 0, 1023);
-  //   float hum = dht.readHumidity();
-  //   float temp = dht.readTemperature();
-  //   Serial.println("MQ : "+(String)mq+"  Hum : "+(String)hum+"%  Temp : "+(String)temp);
-  //   delay(100);
-  // }
 
   if (!LoRa.begin(915E6))
   {
