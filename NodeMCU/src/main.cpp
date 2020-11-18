@@ -4,12 +4,12 @@
   SDA   -> D2
   
   -- LoRa ---
-  RST   -> D0
-  DIO0  -> D3
-  CLK   -> D5
-  MISO  -> D6
-  MOSI  -> D7
-  NSS   -> D8 
+  -RST   -> D0
+  -DIO0  -> D2
+  -CLK   -> D5
+  -MISO  -> D6
+  -MOSI  -> D7
+  -NSS   -> D8 
 */
 #include <Arduino.h>
 #include <ESP8266WiFi.h>
@@ -24,7 +24,7 @@
 #define ssid "bolt"
 #define pass "11111111"
 
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+// LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 bool dataReceived;
 int gas, temp, hum;
@@ -47,17 +47,18 @@ void onReceive(int packetSize)
     String timestamp = (String)timeClient.getEpochTime();
     Serial.println(timestamp);
     data = "{\"co\":" + (String)gas + ",\"humidity\":" + (String)hum + ",\"temperature\":" + (String)temp + ",\"timestamp\":" + (String)timestamp + "}";
-    Serial.println(data);
+    // Serial.println(data);
     dataReceived = true;
   }
+  Serial.println(temporary);
 }
 void setup()
 {
-  Serial.begin(9600);
-  lcd.begin();
-  lcd.backlight();
-  lcd.setCursor(0, 0);
-  lcd.print("Kelompok 6");
+  Serial.begin(115200);
+  // lcd.begin();
+  // lcd.backlight();
+  // lcd.setCursor(0, 0);
+  // lcd.print("Kelompok 6");
   if (!LoRa.begin(915E6))
   {
     Serial.println("Starting LoRa failed!");
@@ -91,15 +92,15 @@ void loop()
     /*
         Mencetak karakter di LCD
     */
-    lcd.clear();
-    char buff[17];
-    lcd.setCursor(0, 0);
-    sprintf(buff, "Hum:%d Temp:%d C", hum, temp);
-    lcd.println(buff);
-    lcd.setCursor(0, 1);
-    char buff2[16];
-    sprintf(buff2, "CO : %d ppm     ", gas);
-    lcd.println(buff2);
+    // lcd.clear();
+    // char buff[17];
+    // lcd.setCursor(0, 0);
+    // sprintf(buff, "Hum:%d Temp:%d C", hum, temp);
+    // lcd.println(buff);
+    // lcd.setCursor(0, 1);
+    // char buff2[16];
+    // sprintf(buff2, "CO : %d ppm     ", gas);
+    // lcd.println(buff2);
 
     /*
         Mengirim data ke fireabase
