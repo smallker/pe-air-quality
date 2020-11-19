@@ -1,11 +1,9 @@
 /*
-  --- LCD ---
-  SCL   -> D1
-  SDA   -> D2
-  
+  --- LED ---
+  -LED   -> D2 
   -- LoRa ---
   -RST   -> D0
-  -DIO0  -> D2
+  -DIO0  -> D1
   -CLK   -> D5
   -MISO  -> D6
   -MOSI  -> D7
@@ -20,11 +18,10 @@
 #include <ArduinoJson.h>
 #include <NTPClient.h>
 #include <WiFiUdp.h>
-#include <LiquidCrystal_I2C.h>
+
+#define LED D2
 #define ssid "bolt"
 #define pass "11111111"
-
-// LiquidCrystal_I2C lcd(0x27, 16, 2);
 
 bool dataReceived;
 int gas, temp, hum;
@@ -55,11 +52,8 @@ void onReceive(int packetSize)
 void setup()
 {
   Serial.begin(115200);
-  // lcd.begin();
-  // lcd.backlight();
-  // lcd.setCursor(0, 0);
-  // lcd.print("Kelompok 6");
-  if (!LoRa.begin(915E6))
+  pinMode(LED, OUTPUT);
+  if (!LoRa.begin(415E6))
   {
     Serial.println("Starting LoRa failed!");
     while (1)
@@ -70,13 +64,7 @@ void setup()
       Inisialisasi WiFi
   */
   WiFi.begin(ssid, pass);
-  while (WiFi.status() != WL_CONNECTED)
-  {
-    delay(500);
-    Serial.println("Connecting to WiFi..");
-  }
-  Serial.println("IP : " + WiFi.localIP().toString());
-  
+
   /*
       Inisialisasi callback LoRa
   */
@@ -86,22 +74,18 @@ void setup()
 
 void loop()
 {
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    Serial.println("Connecting to WiFi..");
+    digitalWrite(LED, HIGH);
+    delay(100);
+    digitalWrite(LED, LOW);
+    delay(3000);
+  }
+  digitalWrite(LED, HIGH);
   timeClient.update();
   if (dataReceived)
   {
-    /*
-        Mencetak karakter di LCD
-    */
-    // lcd.clear();
-    // char buff[17];
-    // lcd.setCursor(0, 0);
-    // sprintf(buff, "Hum:%d Temp:%d C", hum, temp);
-    // lcd.println(buff);
-    // lcd.setCursor(0, 1);
-    // char buff2[16];
-    // sprintf(buff2, "CO : %d ppm     ", gas);
-    // lcd.println(buff2);
-
     /*
         Mengirim data ke fireabase
     */
