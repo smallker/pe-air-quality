@@ -7,6 +7,7 @@ import 'package:flutter_template/ui/android/widget/my_colors.dart';
 import 'package:flutter_template/ui/android/widget/pixel.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -192,7 +193,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   List<Widget> _dateText() {
-    List<String> data = ['Suhu', 'Kelembaban', 'CO2'];
+    List<String> data = ['Suhu', 'Kelembaban', 'CO'];
     return data
         .map(
           (e) => InkWell(
@@ -273,7 +274,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               bottomTitles: SideTitles(
-                showTitles: false,
+                showTitles: true,
                 getTextStyles: (value) => GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: Pixel.x * 3,
@@ -336,7 +337,8 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: MyColors.main,
             axisTitleData: FlAxisTitleData(
               topTitle: AxisTitle(
-                titleText: '21 Okt 2020 ($clicked)',
+                titleText:
+                    '${DateFormat.yMMMMd().format(DateTime.fromMillisecondsSinceEpoch(event.data.last.timestamp))} ($clicked)',
                 textStyle: GoogleFonts.poppins(
                   color: Colors.white,
                 ),
@@ -355,7 +357,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               bottomTitles: SideTitles(
-                showTitles: false,
+                showTitles: true,
                 getTextStyles: (value) => GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: Pixel.x * 3,
@@ -411,7 +413,8 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: MyColors.main,
             axisTitleData: FlAxisTitleData(
               topTitle: AxisTitle(
-                titleText: '21 Okt 2020 ($clicked)',
+                titleText:
+                    '${DateFormat.yMMMMd().format(DateTime.fromMillisecondsSinceEpoch(event.data.last.timestamp))} ($clicked)',
                 textStyle: GoogleFonts.poppins(
                   color: Colors.white,
                 ),
@@ -430,7 +433,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               bottomTitles: SideTitles(
-                showTitles: false,
+                showTitles: true,
                 getTextStyles: (value) => GoogleFonts.poppins(
                   color: Colors.white,
                   fontSize: Pixel.x * 3,
@@ -489,7 +492,8 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: MyColors.main,
             axisTitleData: FlAxisTitleData(
               topTitle: AxisTitle(
-                titleText: '21 Okt 2020 ($clicked)',
+                titleText:
+                    '${DateFormat.yMMMMd().format(DateTime.fromMillisecondsSinceEpoch(event.data.last.timestamp))} ($clicked)',
                 textStyle: GoogleFonts.poppins(
                   color: Colors.white,
                 ),
